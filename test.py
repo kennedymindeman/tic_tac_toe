@@ -51,3 +51,18 @@ def test_row_win():
     assert not board.check_x_win()
     board.play_x((2, 0))
     assert board.check_x_win()
+
+
+def test_backward_diagonal_win():
+    board = TicTacToeBoard()
+    assert not board.check_x_win()
+    board.play_x((0, 0))
+    assert not board.check_x_win()
+    board.play_o((0, 1))
+    assert not board.check_x_win()
+    board.play_x((1, 1))
+    assert not board.check_x_win()
+    board.play_o((1, 0))
+    assert not board.check_x_win()
+    board.play_x((2, 2))
+    assert board.check_x_win()
