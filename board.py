@@ -38,6 +38,12 @@ class TicTacToeBoard:
         if space in self.o_set:
             raise ValueError(f"{space} already contains an O")
 
+    def check_x_win(self):
+        return TicTacToeBoard.check_win(self.x_set)
+
+    def check_o_win(self):
+        return TicTacToeBoard.check_win(self.x_set)
+
     @staticmethod
     def check_win(piece_set):
         return any([
