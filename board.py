@@ -71,27 +71,27 @@ class TicTacToeBoard:
 
     @staticmethod
     def check_col_win(piece_set):
-        row_nums = [col_num for _, col_num in piece_set]
-        for row_num in set(row_nums):
-            if row_nums.count(row_num) >= TicTacToeBoard.length_to_win:
+        col_nums = [col_num for _, col_num in piece_set]
+        for col_num in set(col_nums):
+            if col_nums.count(col_num) >= TicTacToeBoard.length_to_win:
                 return True
 
         return False
 
     @staticmethod
     def check_forward_diagonal_win(piece_set):
-        diagonal_num = [row_num - col_num for row_num, col_num in piece_set]
-        for row_num in set(diagonal_num):
-            if diagonal_num.count(row_num) >= TicTacToeBoard.length_to_win:
+        diagonal_nums = [row_num - col_num for row_num, col_num in piece_set]
+        for diagonal_num in set(diagonal_nums):
+            if diagonal_nums.count(diagonal_num) >= TicTacToeBoard.length_to_win:
                 return True
 
         return False
 
     @staticmethod
     def check_back_diagonal_win(piece_set):
-        diagonal_num = [row_num + col_num for row_num, col_num in piece_set]
-        for row_num in set(diagonal_num):
-            if diagonal_num.count(row_num) >= TicTacToeBoard.length_to_win:
+        diagonal_nums = [row_num + col_num for row_num, col_num in piece_set]
+        for diagonal_num in set(diagonal_nums):
+            if diagonal_nums.count(diagonal_num) >= TicTacToeBoard.length_to_win:
                 return True
 
         return False
