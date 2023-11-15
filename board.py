@@ -18,6 +18,7 @@ class TicTacToeBoard:
 
         self.check_valid_move(space)
         self.x_set.add(space)
+        self.x_turn = False
 
     def play_o(self, space):
         if self.x_turn:
@@ -25,6 +26,7 @@ class TicTacToeBoard:
 
         self.check_valid_move(space)
         self.o_set.add(space)
+        self.x_turn = True
 
     def check_valid_move(self, space):
         if space not in self.spaces:
