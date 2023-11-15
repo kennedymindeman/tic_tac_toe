@@ -44,6 +44,13 @@ class TicTacToeBoard:
     def check_o_win(self):
         return TicTacToeBoard.check_win(self.x_set)
 
+    def is_draw(self):
+        return all([
+            not self.check_x_win(),
+            not self.check_o_win(),
+            len(self.x_set) + len(self.o_set) == len(self.spaces)
+        ])
+
     @staticmethod
     def check_win(piece_set):
         return any([
