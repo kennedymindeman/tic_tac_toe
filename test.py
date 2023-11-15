@@ -33,3 +33,6 @@ def test_play_move_on_occupied_tile():
 def test_play_move_off_board_tile():
     board = TicTacToeBoard()
     pytest.raises(ValueError, board.play_x, (0, -1))
+    pytest.raises(ValueError, board.play_x, (0, TicTacToeBoard.num_cols))
+    pytest.raises(ValueError, board.play_x, (-1, 0))
+    pytest.raises(ValueError, board.play_x, (TicTacToeBoard.num_rows, 0))
