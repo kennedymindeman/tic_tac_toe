@@ -8,7 +8,6 @@ def main():
     screen = pygame.display.set_mode((screen_width, screen_height))
 
     run = True
-
     while run:
         draw_3_by_3_grid(screen, screen_width, screen_height, 10)
         for event in pygame.event.get():
@@ -16,9 +15,9 @@ def main():
                 run = False
 
             if event.type == pygame.MOUSEBUTTONUP:
-                x, y = pygame.mouse.get_pos()
-                square = pygame.Rect(x, y, 10, 10)
-                pygame.draw.rect(screen, (255, 0, 0), square)
+                pos = pygame.mouse.get_pos()
+                x, y = get_board_index(pos, screen_width, screen_height)
+                print(x, y)
 
         pygame.display.update()
 
@@ -33,6 +32,11 @@ def draw_3_by_3_grid(screen, screen_width, screen_height, line_width):
 
     for offset in range(1, 3):
         pygame.draw.rect(screen, (255, 255, 255), (y_spacing * offset, 0, line_width, screen_height))
+
+
+def get_board_index(pos, screen_width, screen_height):
+    y, x = pos
+    return 3 * x // screen_width, 3 * y // screen_height
 
 
 if __name__ == "__main__":
