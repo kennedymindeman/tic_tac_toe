@@ -9,6 +9,7 @@ def main():
 
     run = True
     while run:
+        pygame.draw.circle(screen, (255, 255, 255), (screen_width // 2, screen_height // 2), 20, 5)
         draw_3_by_3_grid(screen, screen_width, screen_height, 10)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
