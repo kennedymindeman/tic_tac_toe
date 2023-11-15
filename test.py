@@ -36,3 +36,18 @@ def test_play_move_off_board_tile():
     pytest.raises(ValueError, board.play_x, (0, TicTacToeBoard.num_cols))
     pytest.raises(ValueError, board.play_x, (-1, 0))
     pytest.raises(ValueError, board.play_x, (TicTacToeBoard.num_rows, 0))
+
+
+def test_row_win():
+    board = TicTacToeBoard()
+    assert not board.check_x_win()
+    board.play_x((0, 0))
+    assert not board.check_x_win()
+    board.play_o((0, 1))
+    assert not board.check_x_win()
+    board.play_x((1, 0))
+    assert not board.check_x_win()
+    board.play_o((1, 1))
+    assert not board.check_x_win()
+    board.play_x((2, 0))
+    assert board.check_x_win()
