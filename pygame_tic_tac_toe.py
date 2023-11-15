@@ -10,6 +10,7 @@ def main():
     run = True
 
     while run:
+        draw_3_by_3_grid(screen, screen_width, screen_height, 10)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
@@ -22,6 +23,16 @@ def main():
         pygame.display.update()
 
     pygame.quit()
+
+
+def draw_3_by_3_grid(screen, screen_width, screen_height, line_width):
+    x_spacing = screen_width // 3
+    y_spacing = screen_height // 3
+    for offset in range(1, 3):
+        pygame.draw.rect(screen, (255, 255, 255), (0, x_spacing * offset, screen_width, line_width))
+
+    for offset in range(1, 3):
+        pygame.draw.rect(screen, (255, 255, 255), (y_spacing * offset, 0, line_width, screen_height))
 
 
 if __name__ == "__main__":
